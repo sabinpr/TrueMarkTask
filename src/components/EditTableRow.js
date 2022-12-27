@@ -22,6 +22,7 @@ export const EditTableRow = ({
         <input
           type="text"
           name="category_name"
+          required="required"
           value={editFormData.category_name}
           onChange={handleEditFormChange}
           placeholder="Enter category..."
@@ -31,6 +32,7 @@ export const EditTableRow = ({
         <input
           type="text"
           name="description"
+          required="required"
           value={editFormData.description}
           onChange={handleEditFormChange}
           placeholder="Enter description..."

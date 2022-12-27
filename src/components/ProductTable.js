@@ -9,6 +9,7 @@ const ProductTable = ({
   setEditProductId,
   editFormData,
   setEditFormData,
+  search,
 }) => {
   const handleEditFormChange = (event) => {
     event.preventDefault();
@@ -73,26 +74,33 @@ const ProductTable = ({
     setProducts(newProducts);
   };
 
-  const displayProducts = products.map((product) => {
-    return (
-      <Fragment key={product.id}>
-        {editProductId === product.id ? (
-          <EditTableRow
-            product={product}
-            handleEditFormChange={handleEditFormChange}
-            editFormData={editFormData}
-            handleCancelClick={handleCancelClick}
-          />
-        ) : (
-          <IndividualProduct
-            product={product}
-            handleEditClick={handleEditClick}
-            handleDeleteClick={handleDeleteClick}
-          />
-        )}
-      </Fragment>
-    );
-  });
+  const displayProducts = products
+    .filter((product) => {
+      return search.toLowerCase() === ""
+        ? product
+        : product.product_name.toLowerCase().includes(search) ||
+            product.category_name.toLowerCase().includes(search);
+    })
+    .map((product) => {
+      return (
+        <Fragment key={product.id}>
+          {editProductId === product.id ? (
+            <EditTableRow
+              product={product}
+              handleEditFormChange={handleEditFormChange}
+              editFormData={editFormData}
+              handleCancelClick={handleCancelClick}
+            />
+          ) : (
+            <IndividualProduct
+              product={product}
+              handleEditClick={handleEditClick}
+              handleDeleteClick={handleDeleteClick}
+            />
+          )}
+        </Fragment>
+      );
+    });
 
   return (
     <form onSubmit={handleEditFormSubmit}>

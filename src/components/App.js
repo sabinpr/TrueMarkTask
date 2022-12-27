@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProductTable from "./ProductTable";
 import { AddNewProduct } from "./AddNewProduct";
+import SearchProduct from "./SearchProduct";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -20,6 +21,7 @@ const App = () => {
     status: "",
     created_at: "",
   });
+  const [search, setSearch] = useState("");
   useEffect(() => {
     axios
       .get("https://product-fhqo.onrender.com/products")
@@ -36,7 +38,10 @@ const App = () => {
         addFormData={addFormData}
         setAddFormData={setAddFormData}
       />
+      <h2>Search for product</h2>
+      <SearchProduct setSearch={setSearch} />
       <ProductTable
+        search={search}
         setProducts={setProducts}
         products={products}
         editProductId={editProductId}
@@ -44,7 +49,6 @@ const App = () => {
         editFormData={editFormData}
         setEditFormData={setEditFormData}
       />
-      
     </div>
   );
 };
