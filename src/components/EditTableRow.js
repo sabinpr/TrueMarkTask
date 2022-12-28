@@ -8,8 +8,9 @@ export const EditTableRow = ({
 }) => {
   return (
     <tr>
-      <td >
+      <td>
         <input
+          className="form-control"
           type="text"
           name="product_name"
           required="required"
@@ -20,6 +21,7 @@ export const EditTableRow = ({
       </td>
       <td>
         <input
+          className="form-control"
           type="text"
           name="category_name"
           required="required"
@@ -30,6 +32,7 @@ export const EditTableRow = ({
       </td>
       <td>
         <input
+          className="form-control"
           type="text"
           name="description"
           required="required"
@@ -41,6 +44,7 @@ export const EditTableRow = ({
       <td>{product.created_at}</td>
       <td>
         <input
+          className="form-control"
           type="text"
           name="status"
           required="required"

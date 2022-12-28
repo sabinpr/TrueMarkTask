@@ -103,9 +103,9 @@ const ProductTable = ({
     });
 
   return (
-    <form onSubmit={handleEditFormSubmit}>
+    <form className="table-wrapper" onSubmit={handleEditFormSubmit}>
       {/* <div className="table-responsive"> */}
-      <table className="table ">
+      <table className="table align-middle">
         <thead>
           <tr>
             <th scope="col">Name</th>
