@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import "../css/App.css"
 import axios from "axios";
 import ProductTable from "./ProductTable";
 import { AddNewProduct } from "./AddNewProduct";
@@ -22,6 +22,7 @@ const App = () => {
     created_at: "",
   });
   const [search, setSearch] = useState("");
+  const [clicked, setClicked] = useState(false);
   useEffect(() => {
     axios
       .get("https://product-fhqo.onrender.com/products")
@@ -30,16 +31,32 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Add new product</h2>
-      <AddNewProduct
-        products={products}
-        setProducts={setProducts}
-        addFormData={addFormData}
-        setAddFormData={setAddFormData}
-      />
-      <h2>Search for product</h2>
-      <SearchProduct setSearch={setSearch} />
+    <div className="main-container">
+      <hr />
+      <h1>Truemark Task</h1>
+      <div className="top-container">
+        <div>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => setClicked(!clicked)}
+          >
+            Add new product
+          </button>
+          {clicked ? (
+            <AddNewProduct
+              products={products}
+              setProducts={setProducts}
+              addFormData={addFormData}
+              setAddFormData={setAddFormData}
+            />
+          ) : (
+            ""
+          )}
+        </div>
+
+        <SearchProduct setSearch={setSearch} />
+      </div>
       <ProductTable
         search={search}
         setProducts={setProducts}

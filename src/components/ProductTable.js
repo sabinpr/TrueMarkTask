@@ -104,7 +104,8 @@ const ProductTable = ({
 
   return (
     <form onSubmit={handleEditFormSubmit}>
-      <table className="table">
+      {/* <div className="table-responsive"> */}
+      <table className="table ">
         <thead>
           <tr>
             <th scope="col">Name</th>
@@ -117,6 +118,7 @@ const ProductTable = ({
         </thead>
         <tbody className="table-group-divider">{displayProducts}</tbody>
       </table>
+      {/* </div> */}
     </form>
   );
 };

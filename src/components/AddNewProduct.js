@@ -1,5 +1,6 @@
 import React from "react";
 import { nanoid } from "nanoid";
+import FormControl from "./FormControl";
 
 export const AddNewProduct = ({
   products,
@@ -44,37 +45,33 @@ export const AddNewProduct = ({
 
   return (
     <form onSubmit={handleAddFormSubmit}>
-      <input
+      <FormControl
+        formId="product-name"
         value={addFormData.product_name}
-        type="text"
         name="product_name"
-        required="required"
-        placeholder="Enter a product name..."
-        onChange={handleAddFormChange}
+        placeholder="Enter a Product name..."
+        handleAddFormChange={handleAddFormChange}
       />
-      <input
+      <FormControl
         value={addFormData.category_name}
-        type="text"
+        formId="category_name"
         name="category_name"
-        required="required"
         placeholder="Enter category..."
-        onChange={handleAddFormChange}
+        handleAddFormChange={handleAddFormChange}
       />
-      <input
+      <FormControl
         value={addFormData.description}
-        type="text"
+        formId="description"
         name="description"
-        required="required"
         placeholder="Enter description..."
-        onChange={handleAddFormChange}
+        handleAddFormChange={handleAddFormChange}
       />
-      <input
+      <FormControl
         value={addFormData.status}
-        type="text"
+        formId="status"
         name="status"
-        required="required"
         placeholder="Enter status..."
-        onChange={handleAddFormChange}
+        handleAddFormChange={handleAddFormChange}
       />
       <button className="btn btn-success" type="submit">
         Add

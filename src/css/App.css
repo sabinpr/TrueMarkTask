@@ -1,0 +1,30 @@
+*{
+    font-family: 'Rubik';
+    font-size: 18px;
+    font-weight: 400;
+    color: hsl(0, 0%, 17%);
+}
+h1{
+    font-weight: 500;
+}
+th{
+    font-weight: 700;
+}
+td {
+  max-width: 22vw;
+}
+button {
+  margin: 2px;
+}
+.main-container {
+  max-width: 1440px;
+  margin: auto;
+}
+.top-container {
+  display: flex;
+  justify-content: space-between;
+}
+.search-form{
+    min-width: 350px;
+}
+@media 
