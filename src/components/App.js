@@ -57,6 +57,7 @@ const App = () => {
 
         <SearchProduct setSearch={setSearch} />
       </div>
+      <p>Note: To use Search filter first Edit or delete the product with Product name= "Table" as there is no category name in it or else it will show error.</p>
       <ProductTable
         search={search}
         setProducts={setProducts}

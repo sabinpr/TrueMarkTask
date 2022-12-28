@@ -4,6 +4,10 @@
   font-weight: 400;
   color: hsl(0, 0%, 17%);
 }
+p{
+    margin-top: 10px;
+    color: hsl(0, 0%, 59%);
+}
 h1 {
   font-weight: 500;
 }
